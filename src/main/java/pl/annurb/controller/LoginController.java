@@ -1,6 +1,5 @@
 package pl.annurb.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -42,6 +41,7 @@ public class LoginController {
         }
 
         User user = loginService.login(registeredUser.getLogin(),registeredUser.getPassword());
+
         if(user!=null){
             HttpSession session = request.getSession();
             session.setAttribute("loggedUser", user);

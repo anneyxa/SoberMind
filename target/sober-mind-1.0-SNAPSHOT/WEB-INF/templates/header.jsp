@@ -37,9 +37,13 @@
                         <a class="dropdown-item" href="/logout">Log out</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link current text-white" href="#">Link <span class="sr-only">(current)</span></a>
-                </li>
+
+                <c:if test="${null != loggedUser}">
+                    <li class="nav-item">
+                        <a class="nav-link current text-white" href="/see-user/${loggedUser.id}">Your account<span class="sr-only">(current)</span></a>
+                    </li>
+                </c:if>
+
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#">Link</a>
                 </li>

@@ -16,6 +16,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import pl.annurb.converter.ActivityConverterFromDatabase;
+import pl.annurb.converter.ActivityConverterToDatabase;
 import pl.annurb.converter.UserConverter;
 import pl.annurb.repository.UserRepository;
 
@@ -69,6 +71,8 @@ public class AppConfig implements WebMvcConfigurer {
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(getUserConverter());
+        registry.addConverter(getActivityConverterToDatabase());
+        registry.addConverter(getActivityConverterFromDatabase());
     }
 
     @Bean
@@ -76,4 +80,11 @@ public class AppConfig implements WebMvcConfigurer {
         return new UserConverter(userRepository);
     }
 
+    @Bean
+    public ActivityConverterToDatabase getActivityConverterToDatabase(){ return new ActivityConverterToDatabase();}
+
+    @Bean
+    public ActivityConverterFromDatabase getActivityConverterFromDatabase(){
+        return new ActivityConverterFromDatabase();
+    }
 }

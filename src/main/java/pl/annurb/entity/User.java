@@ -22,7 +22,7 @@ public class User {
     private String name;
 
     @NotBlank
-    @Column(nullable = false) //TODO: haszowanie przy tworzeniu hasła
+    @Column(nullable = false)
     private String surname;
 
     @NotBlank

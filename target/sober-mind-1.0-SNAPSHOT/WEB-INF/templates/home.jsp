@@ -7,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ page import="pl.annurb.model.ActivityType" %>
 <html>
 <head>
     <title>Home</title>
@@ -22,17 +22,20 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2">
+        <div class="col-3">
             <h4>Last activity:</h4>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <c:forEach items="${activities}" var="activity">
+                    <li class="list-group-item">${activity.message} <br>
+                        <c:if test="${activity.activityType != ActivityType.DELETE_PROJECT}">
+                            <a href="${activity.site}"> Details &#8629; </a>
+                        </c:if>
+                    </li>
+                </c:forEach>
+
             </ul>
         </div>
-        <div class="col-10" style="padding-left: 5%; padding-right: 5%">
+        <div class="col-9" style="padding-left: 5%; padding-right: 5%">
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>Hey, you!</strong> You should do some projects!
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -73,12 +76,12 @@
             </table>
             <p><a href="projects">See all projects</a>
                 <a href="add-project"> Add a new project</a></p>
+                <a href="users"> See all users</a></p>
 
         </div>
     </div>
 </div>
 
 <jsp:include page="footer.jsp"/>
-
 </body>
 </html>
