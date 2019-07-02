@@ -53,9 +53,9 @@
                         </div>
                         <div class="container-login100-form-btn py-2">
                             <input type="submit" class="login100-form-btn" value="Sign up"/>
-                            <a href="<c:url value="login"/>"><button style="margin:auto" class="login100-form-btn">Log in</button></a>
                         </div>
                     </f:form>
+                    <button style="margin:auto" class="login100-form-btn" onclick="window.location='/login'">Log in</button>
                 </div>
             </div>
             <div class="col"></div>

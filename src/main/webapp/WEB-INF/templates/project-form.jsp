@@ -63,7 +63,7 @@
 
                 <div class="container-login100-form-btn py-2">
                     <input type="submit" class="login100-form-btn" value="${empty project.id ? 'Add' : 'Save'}"/>
-                    <a href="<c:url value="/"/>"><button style="margin:auto" class="login100-form-btn">Cancel</button></a>
+                    <button style="margin:auto" class="login100-form-btn" onclick="event.preventDefault(); window.location='/'">Cancel</button>
                 </div>
 
             </f:form>

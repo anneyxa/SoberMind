@@ -1,5 +1,6 @@
 package pl.annurb.controller;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,7 +44,6 @@ public class ProjectController {
 
     @GetMapping("/see-project/{id}")
     public String showProjectDetails(@PathVariable String id, Model model){
-
         model.addAttribute("project", projectService.findProjectById(id));
         return "project-details";
     }
@@ -55,10 +55,7 @@ public class ProjectController {
     }
 
     @PostMapping("/add-project")
-    public String addProject(@Valid Project project, BindingResult result, @SessionAttribute(name = "loggedUser", required = false) User loggedUser){
-        if(loggedUser == null){
-            return "redirect:/sign-up";
-        }
+    public String addProject(@Valid Project project, BindingResult result, @SessionAttribute(name = "loggedUser") User loggedUser){
         if(!result.hasErrors()){
             projectService.createProject(project, loggedUser);
             return "redirect:/";
@@ -74,10 +71,7 @@ public class ProjectController {
     }
 
     @PostMapping("/edit-project")
-    public String editProject(@Valid Project project, BindingResult result, @SessionAttribute(name = "loggedUser", required = false) User loggedUser){
-        if(loggedUser == null){
-            return "redirect:/sign-up";
-        }
+    public String editProject(@Valid Project project, BindingResult result, @SessionAttribute(name = "loggedUser") User loggedUser){
         if(!result.hasErrors()){
             projectService.editProject(project, loggedUser);
             return "redirect:/";
@@ -92,10 +86,7 @@ public class ProjectController {
     }
 
     @PostMapping("/delete-project")
-    public String deleteProject(@ModelAttribute Project project, @SessionAttribute(name = "loggedUser", required = false) User loggedUser){
-        if(loggedUser == null){
-            return "redirect:/sign-up";
-        }
+    public String deleteProject(@ModelAttribute Project project, @SessionAttribute(name = "loggedUser") User loggedUser){
         projectService.deleteProject(project, loggedUser);
         return "redirect:/";
     }

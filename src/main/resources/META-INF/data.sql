@@ -1,4 +1,4 @@
-insert into projects(id, active, description, name, site, created) values("project1", true, "desc1", "project1", "https://www.google.com/", "1998-11-03");
+insert into projects(id, active, description, name, site, created) values("project1", true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ", "project1", "https://www.google.com/", "1998-11-03");
 insert into projects(id, active, description, name, site, created) values("project2", true, "desc2", "project2", "https://www.facebook.com/", "2011-04-22");
 insert into projects(id, active, description, name, site, created) values("project3", false , "desc3", "project3", "https://twitter.com/", "1999-01-02");
 insert into projects(id, active, description, name, created) values("project4", true, "desc4", "project4", "2019-02-04");
@@ -6,5 +6,19 @@ insert into projects(id, active, description, name, created) values("project5", 
 insert into projects(id, active, description, name, created) values("project6", false , "desc6", "project6", "2017-07-29");
 insert into statuses(active, name, number) values(true, "status1", 1);
 insert into statuses(active, name, number) values(true, "status2", 4);
-insert into statuses(active, name, number) values(true, "status3", 2);
+insert into statuses(active, name, number) values(false, "status3", 2);
 insert into statuses(active, name, number) values(true, "status4", 3);
+insert into priorities(active, name) values(true, "priority1");
+insert into priorities(active, name) values(false , "priority2");
+insert into priorities(active, name) values(true, "priority3");
+insert into priorities(active, name) values(true, "priority4");
+insert into priorities(active, name) values(true, "priority5");
+insert into tasks(created, description, topic, priority_id, project_id, status_id) values("1991-07-28", "desc1", "topic1", 1,"project1",2);
+insert into tasks(created, description, topic, priority_id, project_id, status_id) values("2011-14-22", "desc2", "topic2", 1, "project2",2);
+insert into tasks(created, description, topic, priority_id, project_id, status_id) values("2001-24-22", "desc3", "topic3", 2,"project3",2);
+insert into tasks(created, description, topic, priority_id, project_id, status_id) values("2011-04-22", "desc4", "topic4", 4,"project4",3);
+insert into tasks(created, description, topic, priority_id, project_id, status_id) values("1952-04-22", "desc5", "topic5", 1,"project1",2);
+insert into tasks(created, description, topic, priority_id, project_id, status_id) values("1955-04-22", "desc6", "topic6", 1,"project1",2);
+insert into tasks(created, description, topic, priority_id, project_id, status_id) values("2001-04-22", "desc7", "topic7", 1,"project3",2);
+insert into tasks(created, description, topic, priority_id, project_id, status_id) values("1999-04-22", "desc8", "topic8", 1,"project4",2);
+insert into users(login, name, surname, password) values("anneyxa", "Anna", "Urban", "$2a$10$8.uv59Au/p5Z.dCtEs/VVuDHlC1Dsu2fUBciD2TzIeluzOsVAi7Mu");

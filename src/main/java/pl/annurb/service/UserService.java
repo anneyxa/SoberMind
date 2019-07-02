@@ -41,10 +41,10 @@ public class UserService {
     }
 
     public boolean editUser(User user){
-        if(null != userRepository.save(user)){
-            return true;
-        }
-        return false;
+//        User aUser = userRepository.findById(user.getId()).orElse(null);
+//        aUser.setLogin(user.getLogin());
+//        aUser.setPassword(user.getPassword());
+        return null != userRepository.save(user);
     }
 
 }

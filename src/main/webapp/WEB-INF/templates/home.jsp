@@ -60,7 +60,10 @@
                     <tr>
                         <th scope="row">${loop.count}</th>
                         <td>${project.name}</td>
-                        <td>${project.description}</td>
+                        <td><details>
+                            <summary>Description</summary>
+                            ${project.description}
+                        </details></td>
                         <td><a href="${project.site}">${project.site}</a></td>
                         <td><c:forEach var="user" items="${project.users}">
                             ${user.fullName}<br>
@@ -68,16 +71,22 @@
                         <td>${project.created}</td>
                         <td>
                             <a href="edit-project?id=${project.id}"><img src="https://img.icons8.com/windows/32/000000/edit-property.png"></a>
-                            <a href="delete-project?id=${project.id}"><img src="https://img.icons8.com/material-rounded/24/000000/delete-sign.png"></a>
+                            <c:if test="${empty project.tasks}">
+                                <a href="delete-project?id=${project.id}"><img src="https://img.icons8.com/material-rounded/24/000000/delete-sign.png"></a>
+                            </c:if>
+
+                            <a href="/see-project/${project.id}">&#128065;</a>
                         </td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
-            <p><a href="projects">See all projects</a>
-                <a href="add-project"> Add a new project</a></p>
-                <a href="users"> See all users</a></p>
-
+            <p><a href="projects">See all projects</a><br>
+                <a href="add-project"> Add a new project</a><br>
+                <a href="users"> See all users</a><br>
+                <a href="add-task">Add a new task</a><br>
+                <a href="tasks">See all tasks</a><br>
+            </p>
         </div>
     </div>
 </div>

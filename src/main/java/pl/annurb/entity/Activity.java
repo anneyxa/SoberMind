@@ -40,7 +40,6 @@ public class Activity {
     @Column
     private String site;
 
-
     @PrePersist
     public void setMessage(){
 

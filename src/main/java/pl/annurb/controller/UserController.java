@@ -34,10 +34,8 @@ public class UserController {
     }
 
     @GetMapping("/edit-account/{id}")
-    public String showEditAccountForm(@PathVariable Long id, Model model, @SessionAttribute(name = "loggedUser", required = false) User loggedUser){
-        if(loggedUser == null){
-            return "redirect:/sign-up";
-        }
+    public String showEditAccountForm(@PathVariable Long id, Model model, @SessionAttribute(name = "loggedUser") User loggedUser){
+
         User actualUser = userService.findUserById(id);
         model.addAttribute("user", actualUser);
         model.addAttribute("loggedUser", loggedUser);

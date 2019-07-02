@@ -1,6 +1,9 @@
 package pl.annurb.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -47,6 +50,10 @@ public class Project {
     public void setId(String name){
         this.id = name;
     }
+
+    @OneToMany(mappedBy = "project")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Task> tasks;
 
     @PrePersist
     @PreUpdate
